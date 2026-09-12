@@ -1,0 +1,11 @@
+F1 Driver Archive V4
+- 11 teams / 22 drivers for the 2026 grid.
+- Local driver full-body images supplied by the user are bundled in assets/drivers.
+- Local team logos supplied by the user are bundled in assets/teams; Aston Martin uses a web fallback.
+- Current official 2026 calendar is represented as 23 rounds: Saudi Arabia is no longer on the current calendar and the Bahrain Grand Prix is hosted at Sepang, Malaysia on Oct 2-4.
+- 23 circuit-map assets supplied by the user are bundled in assets/circuits and assigned across the calendar; Sepang uses the supplied map slot.
+- Session schedule supports FP1/FP2/FP3, Sprint Qualifying (SQ), Sprint (SP), Qualifying (Q), Race (R).
+- 12-hour / 24-hour toggle.
+- Countdown changes from days to hours/minutes/seconds as the session approaches.
+- LIVE detection checks the active session window and labels FP/SQ/SP/Q/R as LIVE.
+- Team profile is isolated from driver Highlight/Overview content.

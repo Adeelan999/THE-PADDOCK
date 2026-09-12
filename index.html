@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="th">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>F1 Driver Archive • 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div class="scanlines"></div>
+<header class="hero"><nav class="nav"><div class="brand"><b>F1</b> DRIVER ARCHIVE</div><div class="season">2026 • 23 ROUNDS • 11 TEAMS</div><button id="timeFormat" class="ghost-btn">12-HOUR</button></nav>
+<div class="hero-content"><p class="eyebrow">FORMULA 1 / 2026 WORLD CHAMPIONSHIP</p><h1>THE <span>GRID</span><br>HAS ARRIVED.</h1><p>นักแข่ง รถ ทีม และตารางการแข่งขันในหน้าเดียว — พร้อม Countdown แบบสดและสถานะ LIVE เมื่อถึงช่วงแข่งขัน</p><a href="#teams" class="cta">EXPLORE GRID <i>↓</i></a></div><div class="hero-radar"></div></header>
+<main>
+<section id="teams" class="section"><div class="section-title"><div><p class="eyebrow">CONSTRUCTORS</p><h2>11 TEAMS</h2></div><p>กด “DRIVER” เพื่อเปิดโปรไฟล์เต็ม หรือกด “TEAM” เพื่อดูข้อมูลทีมเท่านั้น</p></div><div id="teamGrid" class="team-grid"></div></section>
+<section id="schedule" class="section schedule-section"><div class="section-title"><div><p class="eyebrow">RACE CALENDAR</p><h2>2026 SEASON</h2></div><p>เวลาเป็นเวลาท้องถิ่นของสนาม • 12/24 ชั่วโมง • แสดง LIVE ตาม session จริง</p></div><div id="nextRace" class="next-race"></div><div id="scheduleGrid" class="schedule-grid"></div></section>
+</main>
+<footer><b>F1 DRIVER ARCHIVE</b><span>Fan-made interface • Schedule based on official 2026 F1 calendar</span></footer>
+<div id="modal" class="modal" aria-hidden="true"><div class="backdrop" data-close></div><article id="profile" class="profile"><button class="close" data-close>×</button><div id="profileHero" class="profile-hero"><div class="profile-photo-wrap"><img id="profilePhoto" alt="Driver portrait"><div id="profileNumber" class="big-number"></div></div><div><p id="profileKicker" class="eyebrow"></p><h2 id="profileName"></h2><p id="profileMeta"></p><div class="profile-actions"><button id="driverTab" class="tab active">DRIVER</button><button id="teamTab" class="tab">TEAM</button></div></div></div><div id="profileContent" class="profile-content"></div></article></div>
+<script src="script.js"></script></body></html>

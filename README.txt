@@ -1,39 +1,17 @@
-F1 DRIVER ARCHIVE 2026 — V6
+F1 DRIVER ARCHIVE 2026 - V8
 
-BASE
-- Built from the V4 package.
-- Keeps the 11 teams, 22 drivers, circuit assets and 2026 schedule.
-- Team Profile remains separate from Driver Overview/Highlights.
+โครงสร้างพร้อมสำหรับ GitHub Pages:
+- index.html
+- style.css
+- script.js
+- assets/drivers (22 รูป)
+- assets/teams (11 โลโก้)
+- assets/circuits (23 แผนผังสนาม)
 
-NEW IN V6
-1) F1 Arcade
-   - ทายนักแข่ง: clue-based multiple choice quiz.
-   - ปีนี้แชมป์อะไร?: 2026 driver + constructor prediction.
-   - F1 Race: simple browser racing mini-game.
-   - Race game has MOBILE and COMPUTER control modes.
-   - Every game has an explanation screen before play.
-
-2) Member Area
-   - Login / Sign Up UI.
-   - Policy page with an "อ่านแล้วและยอมรับ" button.
-   - Registration asks the user to confirm "ฉันไม่ใช่บอท".
-   - Current GitHub Pages package uses DEMO MODE only.
-
-IMPORTANT SECURITY NOTE
-GitHub Pages is static hosting. Do NOT use this package as a real password database.
-The demo stores only non-sensitive demo profile data in localStorage and does not provide real authentication.
-For production, connect an authentication/backend service. Passwords should be stored as secure hashes such as Argon2id/bcrypt, not plaintext.
-Do not put real passwords, session tokens, or API service secrets into this front-end.
-
-DATABASE DESIGN
-See ../F1_Member_Database_Schema_2026.xlsx when kept beside the project package. Suggested backend tables:
-- Users
-- Consents
-- GameScores
-- Predictions
-
-PRODUCTION FLOW
-Sign up -> verify email -> accept policy -> bot/anti-automation check -> create account -> issue secure session -> save game scores server-side.
-Login -> server verifies credentials -> secure session cookie -> load profile/scores.
-
-For a real deployment, use HTTPS and server-side authentication/session handling. A CAPTCHA/Turnstile-style control should be treated as defense-in-depth, not as the only security layer.
+V8 fixes:
+- แก้การอ้าง element ด้วย id ให้ใช้ getElementById/querySelector โดยตรง ไม่พึ่ง implicit global IDs ที่อาจทำงานไม่เหมือนกันใน Safari/GitHub Pages
+- เปลี่ยนชื่อไฟล์ driver assets เป็นชื่อเต็มแบบ kebab-case และแก้ path ใน script.js ให้ตรงกัน
+- Mini Games 3 เกม: ทายนักแข่ง / ปีนี้แชมป์อะไร? / F1 Race
+- F1 Race เลือก Mobile หรือ Computer และมี HOW TO PLAY
+- Member demo: Login / Sign Up / Policy / อ่านแล้วและยอมรับ / ฉันไม่ใช่บอท / คะแนน
+- password ใน demo เก็บเป็น SHA-256 hash ใน localStorage; สำหรับระบบออนไลน์จริงควรใช้ backend auth

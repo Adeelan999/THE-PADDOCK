@@ -17,7 +17,7 @@ const teams = [
     {name:"George Russell", number:63, nationality:"สหราชอาณาจักร", dob:"15 กุมภาพันธ์ 1998", debut:"2019", titles:0,
      bio:"George Russell เป็นสมาชิก Mercedes junior programme และเปิดตัว F1 กับ Williams ในปี 2019 ก่อนย้ายมา Mercedes ในปี 2022 เขาเป็นนักขับที่โดดเด่นด้านความเร็วรอบเดียวและการต่อสู้ในสนาม.",
      highlights:["แชมป์ GP3 ปี 2017 และ F2 ปี 2018","ย้ายสู่ Mercedes ในปี 2022","คว้าชัยชนะ F1 ครั้งแรกที่ São Paulo 2022"]},
-    {name:"Andrea Kimi Antonelli", number:12, nationality:"อิตาลี", dob:"25 สิงหาคม 2006", debut:"2025", titles:0,
+    {name:"Kimi Antonelli", number:12, nationality:"อิตาลี", dob:"25 สิงหาคม 2006", debut:"2025", titles:0,
      bio:"Kimi Antonelli เป็นดาวรุ่งจากอิตาลีที่ Mercedes ผลักดันผ่านโปรแกรม junior เขาเปิดตัว F1 ในปี 2025 และพัฒนาขึ้นอย่างรวดเร็ว จนกลายเป็นหนึ่งในนักขับชั้นนำของฤดูกาล 2026.",
      highlights:["แชมป์ Formula Regional Europe 2022","แชมป์ Formula 2 ปี 2024","คว้าชัยชนะ Italian GP 2026"]}]},
   {name:"Red Bull Racing", tag:"RBR", color:"#3671c6", drivers:[
@@ -45,8 +45,8 @@ const teams = [
     {name:"Gabriel Bortoleto", number:5, nationality:"บราซิล", dob:"14 ตุลาคม 2004", debut:"2025", titles:0,
      bio:"Gabriel Bortoleto เป็นดาวรุ่งบราซิลที่คว้าแชมป์ Formula 3 ปี 2023 และ Formula 2 ปี 2024 ก่อนขึ้น F1 เขาเริ่มต้นกับ Sauber และเป็นส่วนหนึ่งของโครงการ Audi เมื่อทีมเข้าสู่ยุคใหม่ในปี 2026.",
      highlights:["แชมป์ FIA Formula 3 ปี 2023","แชมป์ FIA Formula 2 ปี 2024","เป็นนักขับ Audi ในปี 2026"]},
-    {name:"Nico Hülkenberg", number:27, nationality:"เยอรมนี", dob:"19 สิงหาคม 1987", debut:"2010", titles:0,
-     bio:"Nico Hülkenberg เป็นนักขับเยอรมันมากประสบการณ์ เปิดตัว F1 ในปี 2010 และสร้างชื่อจากความเร็วรอบควอลิฟายรวมถึงผลงาน endurance racing เขาเข้าสู่ยุค Audi หลัง Sauber เปลี่ยนชื่อทีมในปี 2026.",
+    {name:"Nico Hulkenberg", number:27, nationality:"เยอรมนี", dob:"19 สิงหาคม 1987", debut:"2010", titles:0,
+     bio:"Nico Hulkenberg เป็นนักขับเยอรมันมากประสบการณ์ เปิดตัว F1 ในปี 2010 และสร้างชื่อจากความเร็วรอบควอลิฟายรวมถึงผลงาน endurance racing เขาเข้าสู่ยุค Audi หลัง Sauber เปลี่ยนชื่อทีมในปี 2026.",
      highlights:["F1 debut ปี 2010","คว้า pole position ที่ Brazilian GP 2010","ประสบการณ์ F1 มากกว่าทศวรรษ"]}]},
   {name:"Williams", tag:"WIL", color:"#1868db", drivers:[
     {name:"Carlos Sainz", number:55, nationality:"สเปน", dob:"1 กันยายน 1994", debut:"2015", titles:0,
@@ -56,8 +56,8 @@ const teams = [
      bio:"Alexander Albon เป็นนักขับไทย-อังกฤษที่เปิดตัว F1 กับ Toro Rosso ในปี 2019 และได้รับการเลื่อนสู่ Red Bull ในปีเดียวกัน ก่อนกลับมา F1 กับ Williams ในปี 2022 และกลายเป็นหัวใจสำคัญของทีม.",
      highlights:["F1 debut ปี 2019","ขึ้น Red Bull Racing ในปี 2019","นำทีม Williams ในยุคสร้างทีมใหม่"]}]},
   {name:"Cadillac", tag:"CAD", color:"#bcbcbc", drivers:[
-    {name:"Sergio Pérez", number:11, nationality:"เม็กซิโก", dob:"26 มกราคม 1990", debut:"2011", titles:0,
-     bio:"Sergio Pérez หรือ Checo เป็นนักขับเม็กซิโกที่มีประสบการณ์ยาวนานใน F1 เขาสร้างชื่อจากการจัดการยางและการแซง ก่อนกลับเข้าสู่กริดปี 2026 กับ Cadillac ซึ่งเป็นทีมใหม่ของ F1.",
+    {name:"Sergio Perez", number:11, nationality:"เม็กซิโก", dob:"26 มกราคม 1990", debut:"2011", titles:0,
+     bio:"Sergio Perez หรือ Checo เป็นนักขับเม็กซิโกที่มีประสบการณ์ยาวนานใน F1 เขาสร้างชื่อจากการจัดการยางและการแซง ก่อนกลับเข้าสู่กริดปี 2026 กับ Cadillac ซึ่งเป็นทีมใหม่ของ F1.",
      highlights:["F1 debut ปี 2011","ชนะ F1 ครั้งแรกที่ Sakhir 2020","กลับสู่กริดกับ Cadillac ในปี 2026"]},
     {name:"Valtteri Bottas", number:77, nationality:"ฟินแลนด์", dob:"28 สิงหาคม 1989", debut:"2013", titles:0,
      bio:"Valtteri Bottas เป็นนักขับฟินแลนด์ที่สร้างผลงานโดดเด่นกับ Williams และ Mercedes เขาคว้าชัยชนะหลายรายการและเป็นส่วนหนึ่งของยุคความสำเร็จของ Mercedes ก่อนกลับสู่กริดกับ Cadillac ในปี 2026.",
@@ -106,7 +106,7 @@ const races = [
 ];
 const circuitImages = Object.fromEntries(races.map(r=>[r.venue,`assets/circuits/IMG_${r.map}`]));
 const driverImages={
-'Lando Norris':'assets/drivers/norris.webp','Oscar Piastri':'assets/drivers/piastri.webp','Charles Leclerc':'assets/drivers/leclerc.webp','Lewis Hamilton':'assets/drivers/hamilton.webp','George Russell':'assets/drivers/russell.webp','Andrea Kimi Antonelli':'assets/drivers/antonelli.webp','Max Verstappen':'assets/drivers/verstappen.webp','Isack Hadjar':'assets/drivers/hadjar.webp','Liam Lawson':'assets/drivers/lawson.webp','Arvid Lindblad':'assets/drivers/lindblad.webp','Pierre Gasly':'assets/drivers/gasly.webp','Franco Colapinto':'assets/drivers/colapinto.webp','Esteban Ocon':'assets/drivers/ocon.webp','Oliver Bearman':'assets/drivers/bearman.webp','Nico Hülkenberg':'assets/drivers/hulkenberg.webp','Gabriel Bortoleto':'assets/drivers/bortoleto.webp','Carlos Sainz':'assets/drivers/sainz.webp','Alexander Albon':'assets/drivers/albon.webp','Fernando Alonso':'assets/drivers/alonso.webp','Lance Stroll':'assets/drivers/stroll.webp','Sergio Pérez':'assets/drivers/perez.webp','Valtteri Bottas':'assets/drivers/bottas.webp'};
+'Lando Norris':'assets/drivers/lando-norris.webp','Oscar Piastri':'assets/drivers/oscar-piastri.webp','Charles Leclerc':'assets/drivers/charles-leclerc.webp','Lewis Hamilton':'assets/drivers/lewis-hamilton.webp','George Russell':'assets/drivers/george-russell.webp','Kimi Antonelli':'assets/drivers/kimi-antonelli.webp','Max Verstappen':'assets/drivers/max-verstappen.webp','Isack Hadjar':'assets/drivers/isack-hadjar.webp','Liam Lawson':'assets/drivers/liam-lawson.webp','Arvid Lindblad':'assets/drivers/arvid-lindblad.webp','Pierre Gasly':'assets/drivers/pierre-gasly.webp','Franco Colapinto':'assets/drivers/franco-colapinto.webp','Esteban Ocon':'assets/drivers/esteban-ocon.webp','Oliver Bearman':'assets/drivers/oliver-bearman.webp','Nico Hulkenberg':'assets/drivers/nico-hulkenberg.webp','Gabriel Bortoleto':'assets/drivers/gabriel-bortoleto.webp','Carlos Sainz':'assets/drivers/carlos-sainz.webp','Alexander Albon':'assets/drivers/alexander-albon.webp','Fernando Alonso':'assets/drivers/fernando-alonso.webp','Lance Stroll':'assets/drivers/lance-stroll.webp','Sergio Perez':'assets/drivers/sergio-perez.webp','Valtteri Bottas':'assets/drivers/valtteri-bottas.webp'};
 const teamImages={'Mercedes':'assets/teams/mercedes.webp','Alpine':'assets/teams/alpine.png','Williams':'assets/teams/williams.png','McLaren':'assets/teams/mclaren.png','Cadillac':'assets/teams/cadillac.png','Ferrari':'assets/teams/ferrari.png','Red Bull Racing':'assets/teams/redbull.webp','Racing Bulls':'assets/teams/racingbulls.png','Haas F1 Team':'assets/teams/haas.png','Audi':'assets/teams/audi.webp','Aston Martin':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Aston_Martin_Aramco_F1_Team_logo.svg/500px-Aston_Martin_Aramco_F1_Team_logo.svg.png'};
 const FALLBACK='https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/300px-F1.svg.png';
 let use12=true; const timeFormat=document.getElementById('timeFormat');
@@ -126,30 +126,96 @@ function renderSchedule(){const sg=document.getElementById('scheduleGrid');sg.in
 function updateCountdown(){const now=Date.now(),live=findLiveSession(now),next=nextSession(now);document.querySelectorAll('.race-card').forEach(c=>{c.classList.remove('live');c.querySelector('[data-status]').innerHTML=''});if(live){const card=document.querySelector(`.race-card[data-round="${live.r.round}"]`);if(card){card.classList.add('live');card.querySelector('[data-status]').innerHTML=`<span class="live-badge">● LIVE — ${live.s.label}</span>`}document.getElementById('nextRace').innerHTML=`<div class="next-main"><div><div class="eyebrow">🔴 F1 LIVE NOW</div><h3>${live.r.country} • ${live.r.venue}</h3><div>${live.s.label} • ถ่ายทอดสด/กำลังแข่งขัน</div></div><div class="countdown live-count">LIVE</div></div>`;return}if(!next){document.getElementById('nextRace').innerHTML='<div class="next-main"><div><div class="eyebrow">SEASON COMPLETE</div><h3>2026 F1 SEASON</h3></div></div>';return}const diff=next.start-now;const card=document.querySelector(`.race-card[data-round="${next.r.round}"]`);if(card)card.querySelector('[data-status]').innerHTML=diff<3600000?'<span class="live-badge soon">● LIVE SOON</span>':'';document.getElementById('nextRace').innerHTML=`<div class="next-main"><div><div class="eyebrow">NEXT SESSION</div><h3>${next.r.country} • ${next.r.venue}</h3><div>${next.s.label} • ${fmtDate(next.s.start.slice(0,10))} • ${fmtTime(next.s.start)}</div></div><div class="countdown">${countdownText(diff)}</div></div>`}
 renderTeams();renderSchedule();setInterval(updateCountdown,1000);timeFormat.onclick=()=>{use12=!use12;timeFormat.textContent=use12?'12-HOUR':'24-HOUR';renderSchedule()};
 
-/* ===== V6 ADD-ONS: MINI GAMES + MEMBER DEMO ===== */
-const memberStoreKey='f1_archive_demo_user';
-const gameScoreKey='f1_archive_scores';
-const predKey='f1_archive_predictions';
-const gameView=document.getElementById('gameView');
+/* ===== V8: ROBUST MINI GAMES + MEMBER DEMO ===== */
+const $ = (id) => document.getElementById(id);
+const memberStoreKey = 'f1_archive_demo_user_v8';
+const gameScoreKey = 'f1_archive_scores_v8';
+const predKey = 'f1_archive_predictions_v8';
+const gameView = $('gameView');
+const loginBtn = $('loginBtn'), signupBtn = $('signupBtn'), logoutBtn = $('logoutBtn'), policyBtn = $('policyBtn');
+const authModal = $('authModal'), policyModal = $('policyModal'), authForm = $('authForm');
+const authTitle = $('authTitle'), authKicker = $('authKicker'), authUsername = $('authUsername'), authEmail = $('authEmail'), authPassword = $('authPassword');
+const signupChecks = $('signupChecks'), policyCheck = $('policyCheck'), botCheck = $('botCheck'), policyReadBtn = $('policyReadBtn');
+const memberStatus = $('memberStatus');
+
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function getMember(){try{return JSON.parse(localStorage.getItem(memberStoreKey)||'null')}catch{return null}}
-function saveMember(m){localStorage.setItem(memberStoreKey,JSON.stringify(m));updateMemberUI()}
+function setMember(m){localStorage.setItem(memberStoreKey,JSON.stringify(m));updateMemberUI()}
 function getScores(){try{return JSON.parse(localStorage.getItem(gameScoreKey)||'{}')}catch{return {}}}
 function addScore(game,points){const m=getMember();if(!m)return;const s=getScores();s[m.username]=s[m.username]||{};s[m.username][game]=(s[m.username][game]||0)+points;localStorage.setItem(gameScoreKey,JSON.stringify(s))}
-function updateMemberUI(){const m=getMember(),el=document.getElementById('memberStatus');if(!el)return;if(m){const s=getScores()[m.username]||{};el.innerHTML=`เข้าสู่ระบบแล้ว: <b>${esc(m.username)}</b> • คะแนน ${Object.values(s).reduce((a,b)=>a+b,0)} • สมาชิกตั้งแต่ ${esc(m.createdAt||'วันนี้')}`;loginBtn.classList.add('hidden');signupBtn.classList.add('hidden');logoutBtn.classList.remove('hidden')}else{el.textContent='ยังไม่ได้เข้าสู่ระบบ';loginBtn.classList.remove('hidden');signupBtn.classList.remove('hidden');logoutBtn.classList.add('hidden')}}
-function openAuth(mode){authModal.classList.add('show');document.body.style.overflow='hidden';authTitle.textContent=mode==='signup'?'SIGN UP':'LOGIN';authKicker.textContent=mode==='signup'?'CREATE ACCOUNT':'ACCOUNT LOGIN';authEmail.required=mode==='signup';signupChecks.classList.toggle('hidden',mode!=='signup');authPassword.autocomplete=mode==='signup'?'new-password':'current-password';authForm.dataset.mode=mode}
-function closeAuth(){authModal.classList.remove('show');document.body.style.overflow=''}
-loginBtn.onclick=()=>openAuth('login');signupBtn.onclick=()=>openAuth('signup');logoutBtn.onclick=()=>{localStorage.removeItem(memberStoreKey);updateMemberUI();gameView.innerHTML='';alert('ออกจากระบบแล้ว')};policyBtn.onclick=()=>policyModal.classList.add('show');policyReadBtn.onclick=()=>{policyModal.classList.remove('show');openAuth('signup');policyCheck.checked=true};document.querySelectorAll('[data-auth-close]').forEach(x=>x.onclick=closeAuth);document.querySelectorAll('[data-policy-close]').forEach(x=>x.onclick=()=>policyModal.classList.remove('show'));
-authForm.onsubmit=e=>{e.preventDefault();const mode=authForm.dataset.mode,u=authUsername.value.trim(),email=authEmail.value.trim(),pw=authPassword.value;if(mode==='signup'){if(!policyCheck.checked||!botCheck.checked)return alert('กรุณาอ่านนโยบายและยืนยันว่าไม่ใช่บอทก่อนสมัคร');if(pw.length<6)return alert('รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร');saveMember({username:u,email,createdAt:new Date().toLocaleDateString('th-TH')});closeAuth();alert('สมัครสมาชิกแบบ DEMO สำเร็จ')}else{const m=getMember();if(!m||m.username!==u)return alert('เดโมนี้ให้ล็อกอินด้วยบัญชีที่สมัครไว้ในเครื่องนี้ก่อน');if(!pw)return alert('กรุณาใส่รหัสผ่าน');closeAuth();alert('เข้าสู่ระบบแบบ DEMO สำเร็จ')}};
-function showGameIntro(title,how,body){gameView.innerHTML=`<div class="game-panel"><p class="eyebrow">HOW TO PLAY</p><h2>${title}</h2><p class="game-help">${how}</p>${body||''}</div>`}
-function requireMember(){if(!getMember()){alert('ต้อง Login / Sign Up ก่อน เพื่อเก็บคะแนนเกม');document.getElementById('member').scrollIntoView({behavior:'smooth'});openAuth('signup');return false}return true}
+async function hashPassword(value){
+  if(window.crypto?.subtle){const data=new TextEncoder().encode(value),buf=await crypto.subtle.digest('SHA-256',data);return [...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,'0')).join('')}
+  let h=2166136261;for(let i=0;i<value.length;i++){h^=value.charCodeAt(i);h=Math.imul(h,16777619)}return String(h>>>0)
+}
+function updateMemberUI(){
+  const m=getMember(); if(!memberStatus)return;
+  if(m){const s=getScores()[m.username]||{},total=Object.values(s).reduce((a,b)=>a+(Number(b)||0),0);memberStatus.innerHTML=`เข้าสู่ระบบแล้ว: <b>${esc(m.username)}</b> • คะแนน ${total} • สมาชิกตั้งแต่ ${esc(m.createdAt||'วันนี้')}`;loginBtn?.classList.add('hidden');signupBtn?.classList.add('hidden');logoutBtn?.classList.remove('hidden')}
+  else{memberStatus.textContent='ยังไม่ได้เข้าสู่ระบบ';loginBtn?.classList.remove('hidden');signupBtn?.classList.remove('hidden');logoutBtn?.classList.add('hidden')}
+}
+function openAuth(mode){if(!authModal)return;authModal.classList.add('show');document.body.style.overflow='hidden';authTitle.textContent=mode==='signup'?'SIGN UP':'LOGIN';authKicker.textContent=mode==='signup'?'CREATE ACCOUNT':'ACCOUNT LOGIN';authEmail.required=mode==='signup';signupChecks.classList.toggle('hidden',mode!=='signup');authPassword.autocomplete=mode==='signup'?'new-password':'current-password';authForm.dataset.mode=mode;authForm.reset();authForm.dataset.mode=mode;signupChecks.classList.toggle('hidden',mode!=='signup')}
+function closeAuth(){authModal?.classList.remove('show');document.body.style.overflow=''}
+loginBtn?.addEventListener('click',()=>openAuth('login'));
+signupBtn?.addEventListener('click',()=>openAuth('signup'));
+logoutBtn?.addEventListener('click',()=>{localStorage.removeItem(memberStoreKey);updateMemberUI();gameView.innerHTML='';alert('ออกจากระบบแล้ว')});
+policyBtn?.addEventListener('click',()=>policyModal?.classList.add('show'));
+policyReadBtn?.addEventListener('click',()=>{policyModal?.classList.remove('show');openAuth('signup');policyCheck.checked=true});
+document.querySelectorAll('[data-auth-close]').forEach(x=>x.addEventListener('click',closeAuth));
+document.querySelectorAll('[data-policy-close]').forEach(x=>x.addEventListener('click',()=>policyModal?.classList.remove('show')));
+
+authForm?.addEventListener('submit',async e=>{
+  e.preventDefault();const mode=authForm.dataset.mode,u=authUsername.value.trim(),email=authEmail.value.trim(),pw=authPassword.value;
+  if(!u)return alert('กรุณาใส่ Username');
+  if(mode==='signup'){
+    if(!email)return alert('กรุณาใส่อีเมล');
+    if(!policyCheck.checked||!botCheck.checked)return alert('กรุณาอ่านนโยบายและยืนยันว่าไม่ใช่บอทก่อนสมัคร');
+    if(pw.length<6)return alert('รหัสผ่านต้องมีอย่างน้อย 6 ตัวอักษร');
+    const old=getMember(); if(old&&old.username!==u)return alert('เดโมนี้รองรับบัญชีเดียวใน browser นี้');
+    const passwordHash=await hashPassword(pw);setMember({username:u,email,passwordHash,createdAt:new Date().toLocaleDateString('th-TH'),policyAccepted:true,botAttested:true});closeAuth();alert('สมัครสมาชิกแบบ DEMO สำเร็จ');
+  }else{
+    const m=getMember();if(!m||m.username!==u)return alert('ไม่พบบัญชีนี้ในเครื่องนี้');
+    if(!pw)return alert('กรุณาใส่รหัสผ่าน');
+    if(m.passwordHash && m.passwordHash!==(await hashPassword(pw)))return alert('รหัสผ่านไม่ถูกต้อง');
+    closeAuth();alert('เข้าสู่ระบบสำเร็จ');updateMemberUI();
+  }
+});
+
+function showGameIntro(title,how,body=''){gameView.innerHTML=`<div class="game-panel"><p class="eyebrow">HOW TO PLAY</p><h2>${title}</h2><p class="game-help">${how}</p>${body}</div>`}
+function requireMember(){if(!getMember()){alert('ต้อง Login / Sign Up ก่อน เพื่อเก็บคะแนนเกม');$('member')?.scrollIntoView({behavior:'smooth'});openAuth('signup');return false}return true}
 let driverRound=0;
 function startDriverGame(){if(!requireMember())return;driverRound=0;nextDriverQuestion()}
-function nextDriverQuestion(){const pool=teams.flatMap(t=>t.drivers.map(d=>({...d,team:t.name})));const d=pool[Math.floor(Math.random()*pool.length)];const choices=[d.name];while(choices.length<3){const x=pool[Math.floor(Math.random()*pool.length)].name;if(!choices.includes(x))choices.push(x)}choices.sort(()=>Math.random()-.5);gameView.innerHTML=`<div class="game-panel"><div class="score-line">QUESTION ${driverRound+1}/5</div><div class="quiz-question">ใครคือนักแข่งที่อยู่กับ <b>${esc(d.team)}</b> และใช้หมายเลข <b>#${d.number}</b>?</div><div class="quiz-options">${choices.map(x=>`<button class="game-choice" data-answer="${esc(x)}">${esc(x)}</button>`).join('')}</div><p class="game-help">ตอบให้ถูกเพื่อรับ 100 คะแนน</p></div>`;document.querySelectorAll('[data-answer]').forEach(b=>b.onclick=()=>{const ok=b.dataset.answer===d.name;addScore('driver-quiz',ok?100:0);b.disabled=true;alert(ok?'ถูกต้อง +100 คะแนน':'ผิด 😅');driverRound++;if(driverRound<5)nextDriverQuestion();else{gameView.innerHTML='<div class="game-panel"><h2>จบเกม 🏁</h2><p>บันทึกคะแนนไว้ใน Member Area แล้ว</p></div>';updateMemberUI()}})}
-function startChampionGame(){if(!requireMember())return;const opts=teams.flatMap(t=>t.drivers.map(d=>d.name));gameView.innerHTML=`<div class="game-panel"><p class="eyebrow">2026 PREDICTION</p><h2>ปีนี้แชมป์อะไร?</h2><p>เลือกแชมป์โลกนักขับ</p><div class="quiz-options">${opts.map(x=>`<button class="game-choice" data-pred-driver="${esc(x)}">${esc(x)}</button>`).join('')}</div><p id="predMsg" class="game-help"></p><p>เลือกแชมป์ผู้สร้าง</p><div class="quiz-options">${teams.map(t=>`<button class="game-choice" data-pred-team="${esc(t.name)}">${esc(t.name)}</button>`).join('')}</div><button id="savePred" class="primary-btn" disabled>LOCK PREDICTION</button></div>`;let pd='',pt='';document.querySelectorAll('[data-pred-driver]').forEach(b=>b.onclick=()=>{pd=b.dataset.predDriver;document.querySelectorAll('[data-pred-driver]').forEach(x=>x.disabled=true);document.getElementById('predMsg').textContent='เลือกนักขับแล้ว: '+pd;check()});document.querySelectorAll('[data-pred-team]').forEach(b=>b.onclick=()=>{pt=b.dataset.predTeam;document.querySelectorAll('[data-pred-team]').forEach(x=>x.disabled=true);check()});function check(){savePred.disabled=!(pd&&pt)}savePred.onclick=()=>{const m=getMember();const all=JSON.parse(localStorage.getItem(predKey)||'{}');all[m.username]={season:2026,driver:pd,team:pt,createdAt:new Date().toISOString()};localStorage.setItem(predKey,JSON.stringify(all));addScore('prediction',250);updateMemberUI();alert('ล็อกคำทายแล้ว +250 คะแนน')}}
-let raceTimer=null;
-function startRaceGame(){if(!requireMember())return;let mode='mobile';showGameIntro('F1 RACE','เลือกอุปกรณ์ก่อนเริ่มเกม จากนั้นหลบสิ่งกีดขวางให้นานที่สุด',`<div class="game-actions"><button class="device-btn" data-device="mobile">📱 MOBILE</button><button class="device-btn" data-device="computer">💻 COMPUTER</button></div><div id="raceStart"></div>`);document.querySelectorAll('[data-device]').forEach(b=>b.onclick=()=>{mode=b.dataset.device;document.getElementById('raceStart').innerHTML=`<p class="game-help">${mode==='mobile'?'มือถือ: ใช้ปุ่ม ◀ ▶ ด้านล่าง':'คอม: ใช้ A/D หรือ ←/→'}</p><button id="startRaceBtn" class="primary-btn">START RACE</button>`;startRaceBtn.onclick=()=>runRace(mode)})}
-function runRace(mode){if(raceTimer)clearInterval(raceTimer);gameView.innerHTML=`<div class="game-panel"><div class="score-line">TIME <span id="raceScore">0</span>s</div><div id="raceGame" class="race-game"><div class="race-lane"></div><div id="gameCar" class="game-car"></div></div><div class="game-actions"><button class="device-btn" id="leftBtn">◀</button><button class="device-btn" id="rightBtn">▶</button></div><p class="game-help">${mode==='mobile'?'กดปุ่มซ้าย/ขวาเพื่อเปลี่ยนเลน':'ใช้ A/D หรือปุ่มลูกศรซ้าย/ขวา'}</p></div>`;const car=document.getElementById('gameCar'),box=document.getElementById('raceGame');let x=50,time=0,dead=false,obs=[];function move(dir){x=Math.max(37,Math.min(63,x+dir*4));car.style.left=x+'%'}leftBtn.onclick=()=>move(-1);rightBtn.onclick=()=>move(1);function key(e){if(['ArrowLeft','a','A'].includes(e.key))move(-1);if(['ArrowRight','d','D'].includes(e.key))move(1)}document.addEventListener('keydown',key);raceTimer=setInterval(()=>{if(dead)return;time++;raceScore.textContent=time;if(Math.random()<.18){const o=document.createElement('div');o.className='obstacle';o.style.left=(Math.random()*22+39)+'%';o.style.top='-65px';box.appendChild(o);obs.push(o)}obs.forEach((o,i)=>{o.style.top=(parseFloat(o.style.top)+7)+'px';const ox=parseFloat(o.style.left);const oy=parseFloat(o.style.top);if(oy>225&&oy<310&&Math.abs(ox-x)<5){dead=true;clearInterval(raceTimer);document.removeEventListener('keydown',key);addScore('race',time*10);alert('ชน! คะแนน +'+time*10);updateMemberUI()}if(oy>350){o.remove();obs.splice(i,1)}})},100)}
+function nextDriverQuestion(){
+  const pool=teams.flatMap(t=>t.drivers.map(d=>({...d,team:t.name}))),d=pool[Math.floor(Math.random()*pool.length)],choices=[d.name];
+  while(choices.length<3){const x=pool[Math.floor(Math.random()*pool.length)].name;if(!choices.includes(x))choices.push(x)}choices.sort(()=>Math.random()-.5);
+  gameView.innerHTML=`<div class="game-panel"><div class="score-line">QUESTION ${driverRound+1}/5</div><div class="quiz-question">ใครคือนักแข่งที่อยู่กับ <b>${esc(d.team)}</b> และใช้หมายเลข <b>#${d.number}</b>?</div><div class="quiz-options">${choices.map(x=>`<button class="game-choice" data-answer="${esc(x)}">${esc(x)}</button>`).join('')}</div><p class="game-help">ตอบให้ถูกเพื่อรับ 100 คะแนน</p></div>`;
+  gameView.querySelectorAll('[data-answer]').forEach(b=>b.addEventListener('click',()=>{const ok=b.dataset.answer===d.name;addScore('driver-quiz',ok?100:0);gameView.querySelectorAll('[data-answer]').forEach(x=>x.disabled=true);alert(ok?'ถูกต้อง +100 คะแนน':'ผิด 😅');driverRound++;if(driverRound<5)nextDriverQuestion();else{gameView.innerHTML='<div class="game-panel"><h2>จบเกม 🏁</h2><p>บันทึกคะแนนไว้ใน Member Area แล้ว</p></div>';updateMemberUI()}}))
+}
+function startChampionGame(){
+  if(!requireMember())return;const opts=teams.flatMap(t=>t.drivers.map(d=>d.name));
+  gameView.innerHTML=`<div class="game-panel"><p class="eyebrow">2026 PREDICTION</p><h2>ปีนี้แชมป์อะไร?</h2><p>เลือกแชมป์โลกนักขับ</p><div class="quiz-options">${opts.map(x=>`<button class="game-choice" data-pred-driver="${esc(x)}">${esc(x)}</button>`).join('')}</div><p id="predMsg" class="game-help"></p><p>เลือกแชมป์ผู้สร้าง</p><div class="quiz-options">${teams.map(t=>`<button class="game-choice" data-pred-team="${esc(t.name)}">${esc(t.name)}</button>`).join('')}</div><button id="savePred" class="primary-btn" disabled>LOCK PREDICTION</button></div>`;
+  let pd='',pt='';const savePred=$('savePred');
+  gameView.querySelectorAll('[data-pred-driver]').forEach(b=>b.addEventListener('click',()=>{pd=b.dataset.predDriver;gameView.querySelectorAll('[data-pred-driver]').forEach(x=>x.disabled=true);$('predMsg').textContent='เลือกนักขับแล้ว: '+pd;check()}));
+  gameView.querySelectorAll('[data-pred-team]').forEach(b=>b.addEventListener('click',()=>{pt=b.dataset.predTeam;gameView.querySelectorAll('[data-pred-team]').forEach(x=>x.disabled=true);check()}));
+  function check(){savePred.disabled=!(pd&&pt)}
+  savePred.addEventListener('click',()=>{const m=getMember(),all=JSON.parse(localStorage.getItem(predKey)||'{}');all[m.username]={season:2026,driver:pd,team:pt,createdAt:new Date().toISOString()};localStorage.setItem(predKey,JSON.stringify(all));addScore('prediction',250);updateMemberUI();alert('ล็อกคำทายแล้ว +250 คะแนน')})
+}
+let raceTimer=null,raceKeyHandler=null;
+function startRaceGame(){
+  if(!requireMember())return;let mode='mobile';showGameIntro('F1 RACE','1) เลือกอุปกรณ์  2) อ่านวิธีเล่น  3) กด START  4) หลบรถให้นานที่สุด',`<div class="game-actions"><button class="device-btn" data-device="mobile">📱 MOBILE</button><button class="device-btn" data-device="computer">💻 COMPUTER</button></div><div id="raceStart"><p class="game-help">Mobile ใช้ปุ่ม ◀ ▶ • Computer ใช้ A/D หรือ ←/→</p></div>`);
+  gameView.querySelectorAll('[data-device]').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.device;gameView.querySelectorAll('[data-device]').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');$('raceStart').innerHTML=`<p class="game-help"><b>${mode==='mobile'?'MOBILE':'COMPUTER'}</b>: ${mode==='mobile'?'กดปุ่ม ◀ ▶ เพื่อเปลี่ยนเลน':'กด A/D หรือ ←/→ เพื่อเปลี่ยนเลน'}</p><button id="startRaceBtn" class="primary-btn">START RACE</button>`;$('startRaceBtn').addEventListener('click',()=>runRace(mode))}));
+}
+function runRace(mode){
+  if(raceTimer)clearInterval(raceTimer);if(raceKeyHandler)document.removeEventListener('keydown',raceKeyHandler);
+  gameView.innerHTML=`<div class="game-panel"><div class="score-line">TIME <span id="raceScore">0</span>s</div><div id="raceGame" class="race-game"><div class="race-lane"></div><div id="gameCar" class="game-car"></div></div><div class="game-actions"><button class="device-btn" id="leftBtn">◀</button><button class="device-btn" id="rightBtn">▶</button></div><p class="game-help">${mode==='mobile'?'กดปุ่มซ้าย/ขวาเพื่อเปลี่ยนเลน':'ใช้ A/D หรือปุ่มลูกศรซ้าย/ขวา'}</p></div>`;
+  const car=$('gameCar'),box=$('raceGame'),scoreEl=$('raceScore');let lane=1,time=0,dead=false,obs=[];
+  function move(dir){lane=Math.max(0,Math.min(2,lane+dir));car.style.left=(25+lane*25)+'%'}
+  $('leftBtn').addEventListener('click',()=>move(-1));$('rightBtn').addEventListener('click',()=>move(1));
+  raceKeyHandler=e=>{if(['ArrowLeft','a','A'].includes(e.key)){e.preventDefault();move(-1)}if(['ArrowRight','d','D'].includes(e.key)){e.preventDefault();move(1)}};document.addEventListener('keydown',raceKeyHandler);
+  raceTimer=setInterval(()=>{
+    if(dead)return;time+=0.1;scoreEl.textContent=time.toFixed(1);
+    if(Math.random()<0.12){const o=document.createElement('div');o.className='obstacle';const ol=Math.floor(Math.random()*3);o.dataset.lane=ol;o.style.left=(25+ol*25)+'%';o.style.top='-60px';box.appendChild(o);obs.push(o)}
+    obs.forEach((o,i)=>{const y=(parseFloat(o.style.top)||-60)+8;o.style.top=y+'px';const ol=Number(o.dataset.lane);if(y>235&&y<330&&ol===lane){dead=true;clearInterval(raceTimer);document.removeEventListener('keydown',raceKeyHandler);const pts=Math.floor(time*10);addScore('race',pts);updateMemberUI();alert('ชน! เวลา '+time.toFixed(1)+'s • คะแนน +'+pts);return}if(y>380){o.remove();obs.splice(i,1)}})
+  },100)
+}
 
-document.querySelectorAll('[data-game]').forEach(b=>b.onclick=()=>{const g=b.dataset.game;if(g==='driver')startDriverGame();if(g==='champion')startChampionGame();if(g==='race')startRaceGame();gameView.scrollIntoView({behavior:'smooth',block:'center'})});
+gameView && document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>{const g=b.dataset.game;if(g==='driver')startDriverGame();else if(g==='champion')startChampionGame();else if(g==='race')startRaceGame();gameView.scrollIntoView({behavior:'smooth',block:'center'})}));
 updateMemberUI();

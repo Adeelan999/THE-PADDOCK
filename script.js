@@ -110,10 +110,12 @@ const driverImages={
 const teamImages={'Mercedes':'assets/teams/mercedes.webp','Alpine':'assets/teams/alpine.png','Williams':'assets/teams/williams.png','McLaren':'assets/teams/mclaren.png','Cadillac':'assets/teams/cadillac.png','Ferrari':'assets/teams/ferrari.png','Red Bull Racing':'assets/teams/redbull.webp','Racing Bulls':'assets/teams/racingbulls.png','Haas F1 Team':'assets/teams/haas.png','Audi':'assets/teams/audi.webp','Aston Martin':'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Aston_Martin_Aramco_F1_Team_logo.svg/500px-Aston_Martin_Aramco_F1_Team_logo.svg.png'};
 const FALLBACK='https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/F1.svg/300px-F1.svg.png';
 let use12=localStorage.getItem('f1_time_format')!=='24';
-const regionOffsets={th:7,jp:9,gb:0,us:-4};
-const regionNames={th:'ประเทศไทย',jp:'ญี่ปุ่น',gb:'สหราชอาณาจักร',us:'สหรัฐฯ ฝั่งตะวันออก'};
 const countryTH={'Australia':'ออสเตรเลีย','China':'จีน','Japan':'ญี่ปุ่น','United States':'สหรัฐอเมริกา','Canada':'แคนาดา','Monaco':'โมนาโก','Spain':'สเปน','Austria':'ออสเตรีย','Great Britain':'สหราชอาณาจักร','Belgium':'เบลเยียม','Hungary':'ฮังการี','Netherlands':'เนเธอร์แลนด์','Italy':'อิตาลี','Azerbaijan':'อาเซอร์ไบจาน','Bahrain':'บาห์เรน','Singapore':'สิงคโปร์','Mexico':'เม็กซิโก','Brazil':'บราซิล','Qatar':'กาตาร์','Abu Dhabi':'อาบูดาบี'};
 let displayRegion=localStorage.getItem('f1_region')||'th';
+let language=localStorage.getItem('f1_language')||'th';
+const regionZones={th:'Asia/Bangkok',jp:'Asia/Tokyo',gb:'Europe/London',us:'America/New_York',sg:'Asia/Singapore',au:'Australia/Sydney'};
+const regionOffsets={th:7,jp:9,gb:0,us:-4,sg:8,au:10};
+const regionNames={th:'ประเทศไทย',jp:'ญี่ปุ่น',gb:'สหราชอาณาจักร',us:'สหรัฐฯ ฝั่งตะวันออก',sg:'สิงคโปร์',au:'ออสเตรเลีย'};
 function fmtTime(t,offset){if(!t)return '—';const d=new Date(t+(offset||'+00:00'));const parts=new Intl.DateTimeFormat(language==='en'?'en-US':'th-TH',{timeZone:regionZones[displayRegion]||'Asia/Bangkok',hour:'numeric',minute:'2-digit',hour12:use12}).formatToParts(d);const h=parts.find(x=>x.type==='hour')?.value||'00',m=parts.find(x=>x.type==='minute')?.value||'00',ap=parts.find(x=>x.type==='dayPeriod')?.value||'';return use12?`${h}:${m} ${ap}`:`${h.padStart(2,'0')}:${m}`}
 function fmtDate(s){return new Intl.DateTimeFormat(language==='en'?'en-US':'th-TH',{day:'numeric',month:'long',year:'numeric'}).format(new Date(s+'T12:00:00Z'))}
 function eventMs(local,offset){return Date.parse(local.replace('T','T')+offset)}
@@ -137,9 +139,11 @@ function closeMenu(){document.getElementById('menuPanel')?.classList.remove('ope
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 document.getElementById('menuBtn')?.addEventListener('click',()=>{document.getElementById('menuPanel')?.classList.add('open');document.getElementById('menuBackdrop')?.classList.add('open')});
 document.getElementById('menuClose')?.addEventListener('click',closeMenu);document.getElementById('menuBackdrop')?.addEventListener('click',closeMenu);
-function updateSettingsUI(){document.getElementById('time12')?.classList.toggle('active',use12);document.getElementById('time24')?.classList.toggle('active',!use12);const rs=document.getElementById('regionSelect');if(rs)rs.value=displayRegion;const summary=document.getElementById('regionSummary');if(summary)summary.textContent=regionNames[displayRegion]+' • GMT'+(regionOffsets[displayRegion]>=0?'+':'')+regionOffsets[displayRegion];}
+function updateSettingsUI(){document.getElementById('time12')?.classList.toggle('active',use12);document.getElementById('time24')?.classList.toggle('active',!use12);document.getElementById('langTH')?.classList.toggle('active',language==='th');document.getElementById('langEN')?.classList.toggle('active',language==='en');const rs=document.getElementById('regionSelect');if(rs)rs.value=displayRegion;const summary=document.getElementById('regionSummary');if(summary)summary.textContent=regionNames[displayRegion]+' • GMT'+(regionOffsets[displayRegion]>=0?'+':'')+regionOffsets[displayRegion];updateExample();}
+function updateExample(){const title=document.getElementById('exampleTitle'),text=document.getElementById('exampleText');if(!title||!text)return;const sample=races.find(r=>r.race);const local=sample.race;const d=new Date(local+sample.offset);const time=new Intl.DateTimeFormat(language==='en'?'en-US':'th-TH',{timeZone:regionZones[displayRegion],hour:'numeric',minute:'2-digit',hour12:use12}).format(d);title.textContent=language==='en'?'Example: Race time in your region':'ตัวอย่าง: เวลาแข่งตามประเทศที่เลือก';text.textContent=language==='en'?`${countryTH[sample.country]||sample.country} Race • ${time}`:`${countryTH[sample.country]||sample.country} Race • เวลา ${time}`;}
 document.querySelectorAll('[data-time]').forEach(b=>b.addEventListener('click',()=>{use12=b.dataset.time==='12';localStorage.setItem('f1_time_format',use12?'12':'24');updateSettingsUI();renderSchedule()}));
 document.getElementById('regionSelect')?.addEventListener('change',e=>{displayRegion=e.target.value;localStorage.setItem('f1_region',displayRegion);updateSettingsUI();renderSchedule();});
+document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>{language=b.dataset.lang;localStorage.setItem('f1_language',language);updateSettingsUI();renderSchedule();}));
 updateSettingsUI();
 
 /* ===== V8: ROBUST MINI GAMES + MEMBER DEMO ===== */
@@ -193,6 +197,9 @@ authForm?.addEventListener('submit',async e=>{
     if(!pw)return alert('กรุณาใส่รหัสผ่าน');
     if(m.passwordHash && m.passwordHash!==(await hashPassword(pw)))return alert('รหัสผ่านไม่ถูกต้อง');
     closeAuth();alert('เข้าสู่ระบบสำเร็จ');
+  }
+});
+
 /* ===== V11: GAME MODAL + LEADERBOARD ===== */
 function openGameWindow(){gameView?.classList.add('open');gameView?.setAttribute('aria-hidden','false');$('gameClose')?.classList.add('show');document.body.style.overflow='hidden'}
 function closeGameWindow(){if(raceTimer){clearInterval(raceTimer);raceTimer=null}if(raceKeyHandler){document.removeEventListener('keydown',raceKeyHandler);raceKeyHandler=null}gameView?.classList.remove('open');gameView?.setAttribute('aria-hidden','true');$('gameClose')?.classList.remove('show');document.body.style.overflow='';}
@@ -202,8 +209,6 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&gameView?.classList
 function renderLeaderboard(){const el=$('leaderboard');if(!el)return;const scores=getScores();const rows=Object.entries(scores).map(([user,g])=>({user,total:Object.values(g||{}).reduce((a,b)=>a+(Number(b)||0),0)})).sort((a,b)=>b.total-a.total).slice(0,10);el.innerHTML=`<div class="leaderboard-head"><div><p class="eyebrow">LEADERBOARD</p><h3>${language==='en'?'TOP F1 PLAYERS':'อันดับคะแนน F1'}</h3></div><span class="leaderboard-note">${language==='en'?'This device demo':'เดโมบนเครื่องนี้'}</span></div>${rows.length?rows.map((r,i)=>`<div class="leader-row"><span class="leader-rank">${String(i+1).padStart(2,'0')}</span><span class="leader-name">${esc(r.user)}</span><b class="leader-score">${r.total.toLocaleString()} PTS</b></div>`).join(''):`<div class="leader-empty">${language==='en'?'No scores yet. Play a game to enter the board.':'ยังไม่มีคะแนน เล่นเกมเพื่อขึ้นกระดาน'}</div>`}`}
 
 updateMemberUI();
-  }
-});
 
 function showGameIntro(title,how,body=''){gameView.innerHTML=`<div class="game-panel"><p class="eyebrow">HOW TO PLAY</p><h2>${title}</h2><p class="game-help">${how}</p>${body}</div>`}
 function requireMember(){if(!getMember()){alert('ต้อง Login / Sign Up ก่อน เพื่อเก็บคะแนนเกม');$('member')?.scrollIntoView({behavior:'smooth'});openAuth('signup');return false}return true}

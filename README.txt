@@ -15,3 +15,9 @@ V8 fixes:
 - F1 Race เลือก Mobile หรือ Computer และมี HOW TO PLAY
 - Member demo: Login / Sign Up / Policy / อ่านแล้วและยอมรับ / ฉันไม่ใช่บอท / คะแนน
 - password ใน demo เก็บเป็น SHA-256 hash ใน localStorage; สำหรับระบบออนไลน์จริงควรใช้ backend auth
+
+
+V13 HOTFIX
+- Uses a versioned script filename (script-v13.js) to avoid stale GitHub Pages/browser cache serving an older script.js.
+- Adds cache-busting query strings to CSS and JS.
+- Original script.js is retained as a backup.

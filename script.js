@@ -114,8 +114,8 @@ const regionOffsets={th:7,jp:9,gb:0,us:-4};
 const regionNames={th:'ประเทศไทย',jp:'ญี่ปุ่น',gb:'สหราชอาณาจักร',us:'สหรัฐฯ ฝั่งตะวันออก'};
 const countryTH={'Australia':'ออสเตรเลีย','China':'จีน','Japan':'ญี่ปุ่น','United States':'สหรัฐอเมริกา','Canada':'แคนาดา','Monaco':'โมนาโก','Spain':'สเปน','Austria':'ออสเตรีย','Great Britain':'สหราชอาณาจักร','Belgium':'เบลเยียม','Hungary':'ฮังการี','Netherlands':'เนเธอร์แลนด์','Italy':'อิตาลี','Azerbaijan':'อาเซอร์ไบจาน','Bahrain':'บาห์เรน','Singapore':'สิงคโปร์','Mexico':'เม็กซิโก','Brazil':'บราซิล','Qatar':'กาตาร์','Abu Dhabi':'อาบูดาบี'};
 let displayRegion=localStorage.getItem('f1_region')||'th';
-function fmtTime(t,offset){if(!t)return '—';const sourceOffset=(offset||'+00:00');const d=new Date(t+sourceOffset);const target=regionOffsets[displayRegion];const utc=d.getTime();const local=new Date(utc+target*3600000);let h=local.getUTCHours(),m=local.getUTCMinutes();if(!use12)return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;const ap=h>=12?'PM':'AM';h=h%12||12;return `${h}:${String(m).padStart(2,'0')} ${ap}`}
-function fmtDate(s){return new Intl.DateTimeFormat('th-TH',{day:'numeric',month:'long',year:'numeric'}).format(new Date(s+'T12:00:00Z'))}
+function fmtTime(t,offset){if(!t)return '—';const d=new Date(t+(offset||'+00:00'));const parts=new Intl.DateTimeFormat(language==='en'?'en-US':'th-TH',{timeZone:regionZones[displayRegion]||'Asia/Bangkok',hour:'numeric',minute:'2-digit',hour12:use12}).formatToParts(d);const h=parts.find(x=>x.type==='hour')?.value||'00',m=parts.find(x=>x.type==='minute')?.value||'00',ap=parts.find(x=>x.type==='dayPeriod')?.value||'';return use12?`${h}:${m} ${ap}`:`${h.padStart(2,'0')}:${m}`}
+function fmtDate(s){return new Intl.DateTimeFormat(language==='en'?'en-US':'th-TH',{day:'numeric',month:'long',year:'numeric'}).format(new Date(s+'T12:00:00Z'))}
 function eventMs(local,offset){return Date.parse(local.replace('T','T')+offset)}
 function sessionList(r){const a=[];if(r.fp1)a.push({key:'fp1',label:'FP1',start:r.fp1,duration:60});if(r.fp2)a.push({key:'fp2',label:'FP2',start:r.fp2,duration:60});if(r.fp3)a.push({key:'fp3',label:'FP3',start:r.fp3,duration:60});if(r.sq)a.push({key:'sq',label:'SQ',start:r.sq,duration:45});if(r.sprint)a.push({key:'sprint',label:'SP',start:r.sprint,duration:60});if(r.qualifying)a.push({key:'qualifying',label:'Q',start:r.qualifying,duration:60});if(r.race)a.push({key:'race',label:'R',start:r.race,duration:150});return a}
 function findLiveSession(now=Date.now()){for(const r of races){for(const s of sessionList(r)){const start=eventMs(s.start,r.offset),end=start+s.duration*60000;if(now>=start&&now<end)return {r,s,start,end}}}return null}
@@ -159,7 +159,7 @@ function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 function getMember(){try{return JSON.parse(localStorage.getItem(memberStoreKey)||'null')}catch{return null}}
 function setMember(m){localStorage.setItem(memberStoreKey,JSON.stringify(m));updateMemberUI()}
 function getScores(){try{return JSON.parse(localStorage.getItem(gameScoreKey)||'{}')}catch{return {}}}
-function addScore(game,points){const m=getMember();if(!m)return;const s=getScores();s[m.username]=s[m.username]||{};s[m.username][game]=(s[m.username][game]||0)+points;localStorage.setItem(gameScoreKey,JSON.stringify(s))}
+function addScore(game,points){const m=getMember();if(!m)return;const s=getScores();s[m.username]=s[m.username]||{};s[m.username][game]=(s[m.username][game]||0)+points;localStorage.setItem(gameScoreKey,JSON.stringify(s));renderLeaderboard()}
 async function hashPassword(value){
   if(window.crypto?.subtle){const data=new TextEncoder().encode(value),buf=await crypto.subtle.digest('SHA-256',data);return [...new Uint8Array(buf)].map(x=>x.toString(16).padStart(2,'0')).join('')}
   let h=2166136261;for(let i=0;i<value.length;i++){h^=value.charCodeAt(i);h=Math.imul(h,16777619)}return String(h>>>0)
@@ -192,7 +192,16 @@ authForm?.addEventListener('submit',async e=>{
     const m=getMember();if(!m||m.username!==u)return alert('ไม่พบบัญชีนี้ในเครื่องนี้');
     if(!pw)return alert('กรุณาใส่รหัสผ่าน');
     if(m.passwordHash && m.passwordHash!==(await hashPassword(pw)))return alert('รหัสผ่านไม่ถูกต้อง');
-    closeAuth();alert('เข้าสู่ระบบสำเร็จ');updateMemberUI();
+    closeAuth();alert('เข้าสู่ระบบสำเร็จ');
+/* ===== V11: GAME MODAL + LEADERBOARD ===== */
+function openGameWindow(){gameView?.classList.add('open');gameView?.setAttribute('aria-hidden','false');$('gameClose')?.classList.add('show');document.body.style.overflow='hidden'}
+function closeGameWindow(){if(raceTimer){clearInterval(raceTimer);raceTimer=null}if(raceKeyHandler){document.removeEventListener('keydown',raceKeyHandler);raceKeyHandler=null}gameView?.classList.remove('open');gameView?.setAttribute('aria-hidden','true');$('gameClose')?.classList.remove('show');document.body.style.overflow='';}
+$('gameClose')?.addEventListener('click',closeGameWindow);
+gameView?.addEventListener('click',e=>{if(e.target===gameView)closeGameWindow()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&gameView?.classList.contains('open'))closeGameWindow()});
+function renderLeaderboard(){const el=$('leaderboard');if(!el)return;const scores=getScores();const rows=Object.entries(scores).map(([user,g])=>({user,total:Object.values(g||{}).reduce((a,b)=>a+(Number(b)||0),0)})).sort((a,b)=>b.total-a.total).slice(0,10);el.innerHTML=`<div class="leaderboard-head"><div><p class="eyebrow">LEADERBOARD</p><h3>${language==='en'?'TOP F1 PLAYERS':'อันดับคะแนน F1'}</h3></div><span class="leaderboard-note">${language==='en'?'This device demo':'เดโมบนเครื่องนี้'}</span></div>${rows.length?rows.map((r,i)=>`<div class="leader-row"><span class="leader-rank">${String(i+1).padStart(2,'0')}</span><span class="leader-name">${esc(r.user)}</span><b class="leader-score">${r.total.toLocaleString()} PTS</b></div>`).join(''):`<div class="leader-empty">${language==='en'?'No scores yet. Play a game to enter the board.':'ยังไม่มีคะแนน เล่นเกมเพื่อขึ้นกระดาน'}</div>`}`}
+
+updateMemberUI();
   }
 });
 
@@ -234,5 +243,5 @@ function runRace(mode){
   },100)
 }
 
-gameView && document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>{const g=b.dataset.game;if(g==='driver')startDriverGame();else if(g==='champion')startChampionGame();else if(g==='race')startRaceGame();gameView.scrollIntoView({behavior:'smooth',block:'center'})}));
-updateMemberUI();
+document.querySelectorAll('[data-game]').forEach(b=>b.addEventListener('click',()=>{openGameWindow();const g=b.dataset.game;if(g==='driver')startDriverGame();else if(g==='champion')startChampionGame();else if(g==='race')startRaceGame();}));
+updateMemberUI();renderLeaderboard();

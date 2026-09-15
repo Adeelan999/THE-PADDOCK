@@ -75,3 +75,17 @@ button,a,input,select{font-family:inherit}button{appearance:none;-webkit-appeara
 .account-btn.account-user:disabled{opacity:1;cursor:default}
 .menu-bottom .settings-link span:before{content:'⚙';font-size:25px;color:#ddd}
 @media (prefers-reduced-motion:reduce){.page.page-enter{animation:none}}
+
+/* ===== V17 HOME / MENU / BETA / I18N ===== */
+.hero{min-height:0;background:#070707}
+.hero.home-mode{min-height:760px;background:radial-gradient(circle at 78% 20%,#44100e 0,#170706 30%,#070707 68%)}
+.hero:not(.home-mode):after{display:none}
+.hero:not(.home-mode) .home-page{display:none}
+.hero .home-page{min-height:0}
+.menu-head{position:relative;min-height:46px}
+.menu-head>b{position:absolute;left:50%;top:4px;transform:translateX(-50%);white-space:nowrap;color:#fff;font:800 15px var(--display);letter-spacing:2px}
+.menu-head button{margin-left:auto}
+.menu-icon{font-size:18px!important;color:#aaa!important;align-self:center!important}
+.menu-link.active .menu-icon{color:#fff!important}
+.beta-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid #5a2a27;background:#1b0d0c;color:#ff7770;border-radius:999px;padding:5px 9px;font:800 9px var(--display);letter-spacing:1px}
+@media(max-width:560px){.hero.home-mode{min-height:700px}.hero-content{margin-top:115px}.menu-head>b{font-size:13px}}

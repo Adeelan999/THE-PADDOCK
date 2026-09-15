@@ -1,11 +1,12 @@
-F1 THE PADDOCK — V15
-Account Beta 1.1 — Synced Account UI
+F1 THE PADDOCK V16
+Account Beta 1.2 / UX Polish
 
-ฐานจาก V14 Account Core โดยไม่เปลี่ยน logic สมัคร/ล็อกอินหลัก
-- ด้านบนและ Account Strip ด้านล่างอ่าน current session เดียวกัน
-- เมื่อ Login สำเร็จ ด้านบนจะแสดง username เดียวกับบัญชีที่ Login อยู่
-- เมื่อ Logout ด้านบนกลับเป็นปุ่ม สมัคร / ล็อกอิน และด้านล่างกลับเป็นสถานะยังไม่ได้เข้าสู่ระบบ
-- account-user ใช้ CSS เดิมของโปรเจกต์ และเพิ่ม cache-busting เป็น v15
-- V14 core ยังเก็บเป็น script-v14.js สำหรับ rollback/reference
+- Added visible page-to-page transition animation.
+- Top account chip now syncs with the active session and shows the username.
+- Removed the duplicate bottom signup button.
+- Removed the duplicate settings gear icon.
+- Centered account identity text vertically.
+- Corrected 2026 Azerbaijan GP session times to official Baku local time (UTC+4).
+- Account core remains based on V14 session/account separation.
 
-หมายเหตุ: ระบบบัญชียังเป็น demo localStorage ไม่ใช่ production authentication
+Demo account data still uses browser localStorage; this is not production authentication.

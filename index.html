@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="th">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="theme-color" content="#070707"><title>THE PADDOCK • F1 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css?v=15"></head>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css?v=16"></head>
 <body>
 <div class="scanlines"></div>
 <header class="hero">
   <nav class="topbar">
     <button class="brand" data-page="drivers"><b>F1</b><span>THE PADDOCK</span></button>
-    <div class="top-actions"><button class="account-btn" id="signupTop">สมัคร</button><button class="account-btn login" id="loginTop">ล็อกอิน</button><span class="account-btn account-user hidden" id="topMember" aria-live="polite"></span><button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button></div>
+    <div class="top-actions"><button class="account-btn" id="signupTop">สมัคร</button><button class="account-btn login" id="loginTop">ล็อกอิน</button><button class="menu-btn" id="menuBtn" aria-label="เปิดเมนู">☰</button></div>
   </nav>
   <div class="hero-content"><p class="eyebrow">FORMULA 1 / 2026 WORLD CHAMPIONSHIP</p><h1>THE <span>PADDOCK</span></h1><p>รวมข้อมูลนักแข่ง ทีม ปฏิทินสนาม และเกม F1 ในเว็บเดียว พร้อมเวลาแข่งที่แปลงเป็นเวลาประเทศไทย</p><button class="cta" data-page="drivers">ดูนักแข่ง <i>→</i></button></div>
   <div class="hero-radar"></div>
@@ -18,7 +18,7 @@
   <button data-page="drivers" class="menu-link active">🏁 <span id="menuDrivers">นักแข่ง</span><small>DRIVERS & TEAMS</small></button>
   <button data-page="calendar" class="menu-link">📅 <span id="menuCalendar">ปฏิทินสนามแข่ง</span><small>2026 RACE CALENDAR</small></button>
   <button data-page="games" class="menu-link">🎮 <span id="menuGames">เกม</span><small>F1 PLAY ZONE</small></button>
-  <div class="menu-bottom"><button data-page="settings" class="menu-link settings-link">⚙️ <span id="menuSettings">ตั้งค่า</span><small>TIME & REGION</small></button></div>
+  <div class="menu-bottom"><button data-page="settings" class="menu-link settings-link"><span id="menuSettings">ตั้งค่า</span><small>TIME & REGION</small></button></div>
 </div>
 <div id="menuBackdrop" class="menu-backdrop"></div>
 
@@ -33,9 +33,9 @@
 </main>
 
 <footer><b>THE PADDOCK • F1 2026</b><span>Fan-made interface • ข้อมูลตารางตามปฏิทิน F1 2026</span></footer>
-<div class="account-strip"><div><span id="memberStatus">ยังไม่ได้เข้าสู่ระบบ</span></div><div><button id="loginBtn" class="primary-btn">ล็อกอิน</button><button id="signupBtn" class="danger-btn">สมัครสมาชิก</button><button id="logoutBtn" class="danger-btn hidden">ออกจากระบบ</button><button id="policyBtn" class="text-btn">นโยบาย</button></div></div>
+<div class="account-strip"><div><span id="memberStatus">ยังไม่ได้เข้าสู่ระบบ</span></div><div><button id="loginBtn" class="primary-btn">ล็อกอิน</button><button id="logoutBtn" class="danger-btn hidden">ออกจากระบบ</button><button id="policyBtn" class="text-btn">นโยบาย</button></div></div>
 
 <div id="modal" class="modal" aria-hidden="true"><div class="backdrop" data-close></div><article id="profile" class="profile"><button class="close" data-close>×</button><div id="profileHero" class="profile-hero"><div class="profile-photo-wrap"><img id="profilePhoto" alt="Profile"><div id="profileNumber" class="big-number"></div></div><div><p id="profileKicker" class="eyebrow"></p><h2 id="profileName"></h2><p id="profileMeta"></p><div class="profile-actions"><button id="driverTab" class="tab active">DRIVER</button><button id="teamTab" class="tab">TEAM</button></div></div></div><div id="profileContent" class="profile-content"></div></article></div>
 <div id="authModal" class="modal" aria-hidden="true"><div class="backdrop" data-auth-close></div><article class="profile modal-small"><button class="close" data-auth-close>×</button><p id="authKicker" class="eyebrow">ACCOUNT</p><h2 id="authTitle">LOGIN</h2><form id="authForm" class="form-grid"><label>Username<input id="authUsername" required autocomplete="username"></label><label id="emailLabel">Email<input id="authEmail" type="email" autocomplete="email"></label><label>Password<input id="authPassword" type="password" required minlength="6" autocomplete="current-password"></label><div id="signupChecks" class="hidden"><div class="policy-box"><b>F1 DRIVER ARCHIVE POLICY</b><p>เว็บแฟนเมดนี้ใช้ข้อมูลบัญชีเพื่อเข้าสู่ระบบและเก็บความคืบหน้าเกมในโหมดเดโม ข้อมูลบัญชีเดโมจะอยู่ใน browser เครื่องนี้</p></div><label class="check-row"><input id="policyCheck" type="checkbox"> <span>ฉันอ่านนโยบายแล้วและยอมรับ</span></label><label class="check-row"><input id="botCheck" type="checkbox"> <span>ฉันไม่ใช่บอท</span></label></div><button class="primary-btn" type="submit">ดำเนินการต่อ</button></form></article></div>
 <div id="policyModal" class="modal" aria-hidden="true"><div class="backdrop" data-policy-close></div><article class="profile modal-small"><button class="close" data-policy-close>×</button><p class="eyebrow">POLICY</p><h2>นโยบาย</h2><div class="policy-box"><p>เว็บไซต์นี้เป็นโปรเจกต์แฟนเมดเพื่อการศึกษาและความบันเทิง</p><p>บัญชีในโหมดเดโมใช้ localStorage เท่านั้น ไม่ควรใช้รหัสผ่านจริง และห้ามเก็บข้อมูลลับใน GitHub</p><p>เมื่อทำระบบออนไลน์จริงควรใช้ authentication และฐานข้อมูลฝั่งเซิร์ฟเวอร์ที่ปลอดภัย</p></div><button id="policyReadBtn" class="primary-btn">อ่านแล้วและยอมรับ</button></article></div>
-<script src="script-v15.js?v=15"></script></body></html>
+<script src="script-v16.js?v=16"></script></body></html>

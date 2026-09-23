@@ -12,10 +12,13 @@ Account Beta 1.2 / UX Polish
 Demo account data still uses browser localStorage; this is not production authentication.
 
 
-V17 — HOME / MENU / FULL LANGUAGE / BETA POLICY
+V18 — HOME / MENU / FULL LANGUAGE / BETA POLICY
 - Separated the landing hero into a dedicated Home page. Drivers, Calendar, Games and Settings no longer show the landing hero.
 - Menu now has Home + Drivers + Race Calendar + Games, with Settings kept as the bottom control.
 - Centered THE PADDOCK in the menu header.
 - Added Thai/English interface switching across the main UI, calendar, settings, games, account area and driver profiles.
 - Added a first-visit Beta warning policy modal; it can be reopened from Policy.
 - Kept Account Beta architecture from V14/V16 and the existing page transition system.
+
+
+V18 Account Fix: fixed the language system overwriting the nested auth form inputs. Username, email, and password inputs are now preserved when Thai/English is applied, so Sign Up and Login remain usable.
